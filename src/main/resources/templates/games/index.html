@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>GameTracker</title>
+</head>
+
+<body style="background-color: rgb(23, 21, 21);">
+
+    <nav style="background-color: rgb(33, 17, 200); padding-left: 15px;">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">GameTracker</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li class="active"><a href="/games">Concluídos</a></li>
+                <li><a href="#">Pendentes</a></li>
+                <li><a href="#">Usuários</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="card-panel teal accent-3" th:if="${success}" th:text="${success}"></div>
+        <div class="card-panel red accent-3 white-text" th:if="${error}" th:text="${error}"></div>
+
+        <h2 style="color: white">Jogos Concluídos</h2>
+
+        <div class="row">
+
+            <div th:each="games : ${game}" class="col s12 m6 l4"> 
+                <div class="card">
+                    <div class="card-content">
+                        <div class="progress">
+                            <div class="determinate" th:style="${'width:' + games.status + '%' }"></div>
+                        </div>
+                        <span th:text="${games.title}" class="card-title"></span>
+                        <p th:text="${games.review}"></p>
+                        <div style="margin-bottom: 10px;">
+                            <span th:text="${games.stars}" data-badge-caption="/10" style="background-color: rgb(72, 62, 182);" class="badge white-text"></span>
+                        </div>
+                    </div>
+                    <div class="card-action">
+                        <a th:href="${'/games/delete/' + games.id}" class="waves-effect waves-light btn red">
+                            <i class="material-icons">delete</i>
+                        </a>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
