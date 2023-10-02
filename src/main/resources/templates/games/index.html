@@ -11,7 +11,7 @@
 
 <body style="background-color: rgb(23, 21, 21);">
 
-    <nav style="background-color: rgb(33, 17, 200); padding-left: 15px;">
+    <nav style="background-color: rgb(33, 17, 200); padding-left: 15px; box-shadow: 0px 1.5px 1px red;">
         <div class="nav-wrapper">
             <a href="#" class="brand-logo">GameTracker</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -32,7 +32,7 @@
         <div class="row">
 
             <div th:each="games : ${game}" class="col s12 m6 l4"> 
-                <div class="card">
+                <div class="card" style="border-style: solid; border-color: rgb(33, 17, 200); background-color: rgb(255, 252, 156);">
                     <div class="card-content">
                         <div class="progress">
                             <div class="determinate" th:style="${'width:' + games.status + '%' }"></div>
@@ -40,11 +40,11 @@
                         <span th:text="${games.title}" class="card-title"></span>
                         <p th:text="${games.review}"></p>
                         <div style="margin-bottom: 10px;">
-                            <span th:text="${games.stars}" data-badge-caption="/10" style="background-color: rgb(72, 62, 182);" class="badge white-text"></span>
+                            <span th:text="${games.stars}" data-badge-caption="/10" style="background-color: rgb(72, 62, 182); border-radius: 1rem;" class="badge white-text"></span>
                         </div>
                     </div>
                     <div class="card-action">
-                        <a th:href="${'/games/delete/' + games.id}" class="waves-effect waves-light btn red">
+                        <a th:href="${'/games/delete/' + games.id}" class="waves-effect waves-light btn red" style="border-radius: 2rem;">
                             <i class="material-icons">delete</i>
                         </a>
 
