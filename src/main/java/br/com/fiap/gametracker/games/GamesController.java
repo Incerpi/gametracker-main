@@ -24,9 +24,9 @@ public class GamesController {
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Long id, RedirectAttributes redirect){
         if (service.delete(id)){
-            redirect.addFlashAttribute("success", "Tarefa apagada com sucesso");
+            redirect.addFlashAttribute("success", "Jogo apagado com sucesso");
         }else{
-            redirect.addFlashAttribute("error", "Tarefa não encontrada");
+            redirect.addFlashAttribute("error", "Jogo não encontrado");
         }
         return "redirect:/games";
     }
