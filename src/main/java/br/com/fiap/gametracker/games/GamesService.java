@@ -23,4 +23,8 @@ public class GamesService {
         return true;
     }
     
+    public void save(Games games) {
+        repository.save(games);
+    }
+
 }
